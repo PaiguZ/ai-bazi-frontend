@@ -102,12 +102,22 @@ function App() {
         <div className="form">
           {error && <p className="error">{error}</p>}
           {[
-            ['password', '访问密码'], ['year', '出生年（农历）'], ['month', '出生月（农历）'],
-            ['day', '出生日（农历）'], ['hour', '出生时（农历）'], ['minute', '出生分'],
-            ['gender', '性别'], ['birthplace', '出生地'], ['residence', '现居地'],
-            ['yearPillar', '年柱'], ['monthPillar', '月柱'], ['dayPillar', '日柱'],
-            ['hourPillar', '时柱'], ['luckCycle', '大运'], ['flowingYear', '流年'],
-            ['flowingMonth', '流月']
+             ['password', '访问密码'],
+             ['year', '出生年（农历）'],
+             ['month', '出生月（农历）'],
+             ['day', '出生日（农历）'],
+             ['hour', '出生时（农历）'],
+             ['minute', '出生分'],
+             ['gender', '性别'],
+             ['birthplace', '出生地'],
+             ['residence', '现居地'],
+             ['yearPillar', '年柱'],
+             ['monthPillar', '月柱'],
+             ['dayPillar', '日柱'],
+             ['hourPillar', '时柱'],
+             ['luckCycle', '大运'],
+             ['flowingYear', '流年'],
+             ['flowingMonth', '流月']
           ].map(([key, label]) => (
             <input
               key={key}
