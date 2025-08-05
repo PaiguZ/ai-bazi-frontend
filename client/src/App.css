@@ -1,0 +1,35 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+}
+
+.chat-box {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.msg {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+  margin-bottom: 0.5rem;
+}
