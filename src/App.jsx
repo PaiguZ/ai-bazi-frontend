@@ -56,7 +56,7 @@ function App() {
     setSubmitted(true);
     setLoading(true);
 
-    const firstQ = `我出生于公历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}，大运是${formData.luckCycle}，流年是${formData.flowingYear}，流月是${formData.flowingMonth}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好，并向我通俗易懂的解释。`;
+    const firstQ = `我出生于公历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}，目前2025年的大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好，并向我通俗易懂的解释。`;
 
     try {
       const res = await axios.post('https://ai-bazi-backend-production.up.railway.app/api/chat', {
