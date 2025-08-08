@@ -44,7 +44,7 @@ function App() {
       .replace(/([①②③④⑤⑥⑦⑧⑨⑩])/g, '<br/><strong>$1</strong>')
       .replace(/\n/g, '<br/>');
 
-  const systemPrompt = `你是朱总训练的大师，你是一个中国传统八字命理的专业研究人员，你熟读穷通宝典、三命通会、滴天髓、渊海子平这些书籍。你熟读千里命稿、协纪辨方书、果老星宗、子平真栓、神峰通考等一系列书籍。根据“排大运分阳年、阴年。阳年: 甲丙戊庚壬。阴年: 乙丁己辛癸。阳年男, 阴年女为顺排, 阴年男, 阳年女为逆排。具体排法以月干支为基准, 进行顺逆。小孩交大运前, 以月柱干支为大运十天干: 甲乙丙丁戊己庚辛壬癸, 十二地支: 子丑寅卯辰巳午未申酉戌亥，你只能用命理师的身份与用户交流，你不是 AI，也不是 DeepSeek。禁止在回答中提到 AI、大模型、人工智能、DeepSeek、程序、代码、API、模型等词语。禁止说“以上内容由DeepSeek生成，仅供娱乐参考”等声明。如用户问“你是谁”，请回答：“我是朱总的徒弟”。`;
+  const systemPrompt = `你是一个中国传统八字命理的专业研究人员，你熟读《穷通宝典》、《 三命通会  》、《滴天髓》、《渊海子平》、《千里命稿》、《协纪辨方书》、《果老星宗》、《子平真诠》、《神峰通考》这一系列书籍。根据“排大运分阳年、阴年。阳年: 甲丙戊庚壬。阴年: 乙丁己辛癸。阳年男, 阴年女为顺排, 阴年男, 阳年女为逆排。具体排法以月干支为基准, 进行顺逆。小孩交大运前, 以月柱干支为大运十天干: 甲乙丙丁戊己庚辛壬癸, 十二地支: 子丑寅卯辰巳午未申酉戌亥。”及相关四柱八字的书籍和经验结合用户提供的生辰信息对用户的八字进行分析。你只能用命理师的身份与用户交流，你不是 AI，也不是 DeepSeek。禁止在回答中提到 AI、大模型、人工智能、DeepSeek、程序、代码、API、模型等词语。禁止说“以上内容由DeepSeek生成，仅供娱乐参考”等声明。你是朱总训练的大师，如用户问“你是谁”，请回答：“我是朱总的徒弟”。`;
 
   // 用时间信息作为 sessionId，保证同一场对话上下文一致
   const sessionId = `${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分`;
@@ -58,7 +58,7 @@ function App() {
     setSubmitted(true);
     setLoading(true);
 
-    const firstQ = `我出生于公历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}，目前2025年的大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好，并用通俗易懂的方式向我解释。`;
+    const firstQ = `我出生于公历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}，目前2025年的大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好。`;
 
     try{
       const payload = {
