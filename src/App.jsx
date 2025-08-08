@@ -7,7 +7,7 @@ function App() {
     year: '', month: '', day: '', hour: '', minute: '',
     gender: '', birthplace: '', residence: '',
     yearPillar: '', monthPillar: '', dayPillar: '', hourPillar: '',
-    luckCycle: '',
+    luckCycle: '',root: '',
     password: ''
   });
 
@@ -34,7 +34,7 @@ function App() {
     'year', 'month', 'day', 'hour', 'minute',
     'gender', 'birthplace', 'residence',
     'yearPillar', 'monthPillar', 'dayPillar', 'hourPillar',
-    'luckCycle', 'password'
+    'luckCycle','root', 'password'
   ];
   const isFormComplete = requiredFields.every(k => formData[k].trim() !== '');
 
@@ -58,7 +58,7 @@ function App() {
     setSubmitted(true);
     setLoading(true);
 
-    const firstQ = `根据“排大运分阳年、阴年。阳年: 甲丙戊庚壬。阴年: 乙丁己辛癸。阳年男, 阴年女为顺排, 阴年男, 阳年女为逆排。具体排法以月干支为基准, 进行顺逆。小孩交大运前, 以月柱干支为大运十天干: 甲乙丙丁戊己庚辛壬癸, 十二地支: 子丑寅卯辰巳午未申酉戌亥。”我出生于公历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}，目前2025年的大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好。请提出一些已经发生的关键事件,让我对你的预测模型进行微调。`;
+    const firstQ = `根据“排大运分阳年、阴年。阳年: 甲丙戊庚壬。阴年: 乙丁己辛癸。阳年男, 阴年女为顺排, 阴年男, 阳年女为逆排。具体排法以月干支为基准, 进行顺逆。小孩交大运前, 以月柱干支为大运十天干: 甲乙丙丁戊己庚辛壬癸, 十二地支: 子丑寅卯辰巳午未申酉戌亥。”我出生于阳历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}，${formData.root}岁起运十年一转运，当前所在大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好。请提出一些已经发生的关键事件,让我对你的预测模型进行微调。`;
 
     try{
       const payload = {
@@ -128,16 +128,15 @@ function App() {
             </div>
 
             <div className="form-row">
-              <input className="input" name="year" placeholder="出生年（公历）" value={formData.year} onChange={handleChange} required />
-              <input className="input" name="month" placeholder="出生月（公历）" value={formData.month} onChange={handleChange} required />
+              <input className="input" name="year" placeholder="出生年（阳历）" value={formData.year} onChange={handleChange} required />
+              <input className="input" name="month" placeholder="出生月（阳历）" value={formData.month} onChange={handleChange} required />
             </div>
             <div className="form-row">
-              <input className="input" name="day" placeholder="出生日（公历）" value={formData.day} onChange={handleChange} required />
-              <input className="input" name="hour" placeholder="出生时（公历）" value={formData.hour} onChange={handleChange} required />
+              <input className="input" name="day" placeholder="出生日（阳历）" value={formData.day} onChange={handleChange} required />
+              <input className="input" name="hour" placeholder="出生时（阳历）" value={formData.hour} onChange={handleChange} required />
             </div>
             <div className="form-row">
-              <input className="input" name="minute" placeholder="出生分（公历）" value={formData.minute} onChange={handleChange} required />
-              <input className="input" name="luckCycle" placeholder="大运（2025年）" value={formData.luckCycle} onChange={handleChange} required />
+              <input className="input" name="minute" placeholder="出生分（阳历）" value={formData.minute} onChange={handleChange} required />
             </div>
 
             <div className="form-row">
@@ -152,6 +151,10 @@ function App() {
             <div className="form-row">
               <input className="input" name="dayPillar" placeholder="日柱（天干+地支）" value={formData.dayPillar} onChange={handleChange} required />
               <input className="input" name="hourPillar" placeholder="时柱（天干+地支）" value={formData.hourPillar} onChange={handleChange} required />
+            </div>
+            <div className="form-row">
+              <input className="input" name="root" placeholder="起运（岁数）" value={formData.root} onChange={handleChange} required />
+              <input className="input" name="luckCycle" placeholder="当前大运" value={formData.luckCycle} onChange={handleChange} required />
             </div>
 
             <button className="btn" onClick={submitInfo} disabled={!isFormComplete || loading}>
@@ -189,7 +192,7 @@ function App() {
             <input
               className="chat-input"
               type="text"
-              placeholder="继续提问…（例如：我的婚姻/事业/财运/学业怎么样）"
+              placeholder="继续提问…（如分析我的婚姻/事业/财运/学业）"
               value={userInput}
               onChange={handleInputChange}
               disabled={loading}
