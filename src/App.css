@@ -32,20 +32,30 @@
   }
 }
 
-/* ===== 全局 ===== */
+/* ===== 全局：用 min-height 而非 height，确保背景可随内容增高 ===== */
 *{ box-sizing: border-box; }
-html, body, #root{ height: 100%; }
-body{
-  margin:0;
-  color: var(--text);
+html{
+  min-height: 100%;
   background:
     radial-gradient(1200px 600px at 10% -10%, rgba(59,130,246,.10), transparent 60%),
     radial-gradient(900px 500px at 90% 0%, rgba(16,185,129,.10), transparent 50%),
     linear-gradient(180deg, var(--bg-grad-1), var(--bg-grad-2));
+}
+body{
+  margin:0;
+  min-height: 100%;
+  background: inherit;             /* 继承 html 的背景，确保满屏且可增长 */
+  color: var(--text);
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
+#root{
+  min-height: 100%;
+}
 
-/* ===== 容器：填满视窗（修复移动端 100vh 黑边） ===== */
+/* 防止横向滚动条导致的“黑边” */
+html, body{ overflow-x: hidden; }
+
+/* ===== 容器：填满视窗，且可继续随内容增高（修复移动端 100vh 黑边） ===== */
 .container{
   max-width: 960px;
   margin: 0 auto;
@@ -81,7 +91,7 @@ h1{
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   padding: 16px;
-  flex: 1;                      /* 占满剩余高度 */
+  flex: 1;                      /* 占满剩余高度（视口以内），内容更高时可继续增长 */
   display: flex;
   flex-direction: column;
 }
@@ -151,14 +161,14 @@ h1{
   display: grid;
   grid-template-rows: 1fr auto;   /* 上面消息自适应，下面输入固定 */
   flex: 1;                        /* 占满剩余高度 */
-  min-height: 0;                  /* 关键：允许内部滚动 */
+  min-height: 0;                  /* 允许内部滚动 */
 }
 
 .chat-box{
   padding: 14px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  min-height: 0;                  /* 关键：修复移动端滚动计算 */
+  min-height: 0;                  /* 修复移动端滚动计算 */
 }
 
 /* 单条消息容器 */
@@ -166,7 +176,7 @@ h1{
 
 /* 对话气泡 */
 .bubble{
-  max-width: 80%;
+  max-width: 90%;
   padding: 10px 12px;
   border-radius: 14px;
   line-height: 1.6;
