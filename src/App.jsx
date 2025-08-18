@@ -58,7 +58,7 @@ function App() {
     setSubmitted(true);
     setLoading(true);
 
-    const firstQ = `根据“排大运分阳年、阴年。阳年: 甲丙戊庚壬。阴年: 乙丁己辛癸。阳年男, 阴年女为顺排, 阴年男, 阳年女为逆排。具体排法以月干支为基准, 进行顺逆。小孩交大运前, 以月柱干支为大运十天干: 甲乙丙丁戊己庚辛壬癸, 十二地支: 子丑寅卯辰巳午未申酉戌亥。”我出生于阳历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}。我${formData.root}岁起运，当前所在大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字进行分析，内容越全面越详细越好。`;
+    const firstQ = `根据“排大运分阳年、阴年。阳年: 甲丙戊庚壬。阴年: 乙丁己辛癸。阳年男, 阴年女为顺排, 阴年男, 阳年女为逆排。具体排法以月干支为基准, 进行顺逆。小孩交大运前, 以月柱干支为大运十天干: 甲乙丙丁戊己庚辛壬癸, 十二地支: 子丑寅卯辰巳午未申酉戌亥。”我出生于阳历${formData.year}年${formData.month}月${formData.day}日${formData.hour}时${formData.minute}分，性别为${formData.gender}，出生地为${formData.birthplace}，现居地为${formData.residence}，八字年柱是${formData.yearPillar}，月柱是${formData.monthPillar}，日柱是${formData.dayPillar}，时柱是${formData.hourPillar}。我${formData.root}岁起运，十年一转运。当前所在大运是${formData.luckCycle}。请你以一个专业四柱八字研究者的角色，对我的八字和大运进行分析，内容越全面越详细越好。`;
 
     try{
       const payload = {
